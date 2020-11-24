@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+button:focus {
+  outline: none;
+}
+
+label {
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #464646;
+}
+
+input {
+  font: inherit;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  /* padding: 0.4rem 0.2rem; */
+  color: #383838;
+  margin-bottom: 0.5rem;
+  width: -webkit-fill-available;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 2px solid #f890a7;
+}
+
+button {
+  font: inherit;
+  padding: 0.9rem 1.5rem;
+  border: 1px solid #ec2550;
+  background: #ec2550;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+  /* margin: 0 0.5rem; */
+  width: max-content;
+  margin: 0.5rem 0;
+}
+
+button:hover,
+button:active {
+  border: 1px solid #f890a7;
+  background: #f890a7;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
+  margin: 2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.more-control {
+  margin: 0 1rem;
+}
+
+section div {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+.control label,
+.control input {
+  display: block;
+}
