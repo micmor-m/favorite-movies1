@@ -16,7 +16,7 @@ button:focus {
 
 label {
   font-weight: bold;
-  margin: 0.5rem 0;
+  display: block;
   color: #464646;
 }
 
@@ -24,15 +24,15 @@ input {
   font: inherit;
   border: none;
   border-bottom: 2px solid #ccc;
-  /* padding: 0.4rem 0.2rem; */
-  color: #383838;
-  margin-bottom: 0.5rem;
-  width: -webkit-fill-available;
+  color: #494949;
+  margin: 1rem 0;
+  width: 100%;
+  display: block;
 }
 
 input:focus {
   outline: none;
-  border-bottom: 2px solid #f890a7;
+  border-color: #ff0062;
 }
 
 button {
@@ -44,9 +44,6 @@ button {
   border-radius: 4px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
   cursor: pointer;
-  /* margin: 0 0.5rem; */
-  width: max-content;
-  margin: 0.5rem 0;
 }
 
 button:hover,
@@ -56,26 +53,40 @@ button:active {
 }
 
 .card {
-  background: white;
+  padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.26);
-  margin: 2rem;
-  padding: 1rem;
+}
+
+.inline-controls {
   display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
 }
 
-.more-control {
-  margin: 0 1rem;
+.control {
+  margin: 1rem;
 }
 
-section div {
-  display: inline-block;
-  margin: 0 0.5rem;
+#user-input,
+#movie-list,
+#filter {
+  width: 50rem;
+  max-width: 90%;
+  margin: 2rem auto;
 }
 
-.control label,
-.control input {
+#movie-list {
+  display: none;
+  list-style: none;
+  padding: 1rem;
+}
+
+#movie-list.visible {
   display: block;
+}
+
+#movie-list li {
+  margin: 1rem;
+  color: #ff0062;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
