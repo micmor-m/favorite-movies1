@@ -1,6 +1,6 @@
 const addMovieBtn = document.querySelector("#add-movie-btn");
 const searchBtn = document.querySelector("#search-btn");
-const listRoot = document.querySelector("#movie-list");
+let listRoot = document.querySelector("#movie-list");
 
 const movieList = [];
 
@@ -55,16 +55,17 @@ function addMovieHandler() {
 }
 
 function updateMovieList(filteredList) {
-  listRoot.remove();
-  const filteredListRoot = document.createElement("ul");
-  filteredListRoot.className = "card";
-  filteredListRoot.id = "movie-list";
-  //const lastSection = document.body.children;
+  //remove the complete list
+  listRoot.parentElement.removeChild(listRoot);
+  //then create a new ul with the same name, id, class
+  listRoot = document.createElement("ul");
+  listRoot.className = "card";
+  listRoot.id = "movie-list";
   const body = document.body;
-  //console.log(lastSection);
-  //lastSection[1].append(filteredListRoot);
-  body.append(filteredListRoot);
+  //append it to body
+  body.appendChild(listRoot);
 
+  //for each element in the filtered array create a li element
   for (const filterMovie of filteredList) {
     const title = filterMovie.info.title;
     let extraInfo = "";
@@ -80,16 +81,16 @@ function updateMovieList(filteredList) {
     <p>${extraInfo}</P>
     <hr>
     </div>
-    
     `;
-    filteredListRoot.appendChild(newMovieElement);
+    listRoot.appendChild(newMovieElement);
   }
 
+  //add class visible if filtered array length > 0
   if (filteredList.length === 0) {
-    filteredListRoot.classList.remove("visible");
+    listRoot.classList.remove("visible");
     return;
   } else {
-    filteredListRoot.classList.add("visible");
+    listRoot.classList.add("visible");
   }
 }
 
@@ -100,8 +101,7 @@ function searchHandler() {
     return obj.info.title.includes(filteredTitle);
   });
 
-  console.log(filteredList);
-  // listRoot.replaceChild(filteredTitle);
+  console.log("Filtered List", filteredList);
   updateMovieList(filteredList);
   return;
 }
